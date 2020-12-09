@@ -14,7 +14,7 @@ jobs:
             command: |
               export NVM_DIR="/opt/circleci/.nvm"
               [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-              nvm install v8.11.3 && nvm alias default v8.11.3
+              brew install node@10.13
       - save_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
