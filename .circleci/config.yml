@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  node: circleci/node@10.13
 jobs:
   build:
     working_directory: ~/my-project
@@ -8,13 +10,6 @@ jobs:
       - checkout
       - restore_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
-#      - run: npm install
-      - run:
-            name: Install node@v8.11.3
-            command: |
-              export NVM_DIR="/opt/circleci/.nvm"
-              [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-              brew install node@10.13
       - save_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
