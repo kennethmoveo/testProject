@@ -28,4 +28,4 @@ jobs:
             - "node_modules"
       - run:
           name: Run tests
-          command: xvfb-run -a npm run test
+          command: npm run test
